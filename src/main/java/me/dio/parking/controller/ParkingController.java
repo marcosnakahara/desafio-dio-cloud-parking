@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/parking")
+//@RequestMapping("/parking")
 @Tag(name = "Parking Controller", description = "Parking Controller")
 public class ParkingController {
 
