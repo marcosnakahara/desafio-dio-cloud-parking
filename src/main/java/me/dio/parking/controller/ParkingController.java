@@ -7,7 +7,6 @@ import me.dio.parking.controller.dto.ParkingDTO;
 import me.dio.parking.controller.mapper.ParkingMapper;
 import me.dio.parking.model.Parking;
 import me.dio.parking.service.ParkingService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/parking")
+@RequestMapping("/parking")
 @Tag(name = "Parking Controller", description = "Parking Controller")
 public class ParkingController {
 

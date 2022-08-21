@@ -1,20 +1,25 @@
 package me.dio.parking.config;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
-import org.springframework.context.annotation.Bean;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SwaggerConfig {
-
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(new Info().title("Parking REST API")
-                        .description("Spring Boot REST API for Parking")
-                        .version("1.0.0")
-                        .license(new License().name("Apache License Version 2.0").url("https://www.apache.org/licenses/LICENSE-2.0\"")));
-    }
-}
+@SecurityScheme(
+    name = "basicAuth",
+    type = SecuritySchemeType.HTTP,
+    scheme = "basic"
+)
+@OpenAPIDefinition(
+    info = @Info(title = "Parking REST API",
+                description = "Spring Boot REST API for Parking",
+                version = "1.0.0",
+                license = @License(name = "Apache License Version 2.0",
+                                    url = "https://www.apache.org/licenses/LICENSE-2.0\"")),
+    security = @SecurityRequirement(name = "basicAuth")
+)
+public class SwaggerConfig { }
