@@ -32,27 +32,27 @@ class ParkingControllerTest extends AbstractContainerBase{
                 .statusCode(HttpStatus.OK.value());
     }
 
-//    @Test
-//    void whenCreateThenCheckIsCreated() {
-//
-//        ParkingCreateDTO createDTO = new ParkingCreateDTO();
-//        createDTO.setColor("MARROM");
-//        createDTO.setLicense("TTT-6789");
-//        createDTO.setModel("MIURA");
-//        createDTO.setState("PR");
-//
-//        RestAssured.given()
-//                .auth()
-//                .basic("user", "12blabla")
-//                .when()
-//                .contentType(MediaType.APPLICATION_JSON_VALUE)
-//                .body(createDTO)
-//                .post("/parking")
-//                .then()
-//                .statusCode(HttpStatus.CREATED.value())
-//                .body("license", Matchers.equalTo("TTT-6789"))
-//                .body("color", Matchers.equalTo("MARROM"))
-//                .body("model", Matchers.equalTo("MIURA"))
-//                .body("state", Matchers.equalTo("PR"));
-//    }
+    @Test
+    void whenCreateThenCheckIsCreated() {
+
+        ParkingCreateDTO createDTO = new ParkingCreateDTO();
+        createDTO.setColor("MARROM");
+        createDTO.setLicense("TTT-6789");
+        createDTO.setModel("MIURA");
+        createDTO.setState("PR");
+
+        RestAssured.given()
+                .auth()
+                .basic("user", "12blabla")
+                .when()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .body(createDTO)
+                .post("/parking")
+                .then()
+                .statusCode(HttpStatus.CREATED.value())
+                .body("license", Matchers.equalTo("TTT-6789"))
+                .body("color", Matchers.equalTo("MARROM"))
+                .body("model", Matchers.equalTo("MIURA"))
+                .body("state", Matchers.equalTo("PR"));
+    }
 }
